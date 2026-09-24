@@ -7,25 +7,40 @@ faqs.forEach((faq) => {
 });
 
 let menuList = document.getElementById("menuList");
-menuList.style.maxHeight = "0px";
+if (menuList) {
+  menuList.style.maxHeight = "0px";
+}
 
 function toggleMenu() {
-  if (menuList.style.maxHeight == "0px") {
+  if (menuList && menuList.style.maxHeight == "0px") {
     menuList.style.maxHeight = "100vh";
     menuList.style.height = "100vh";
-
     document.body.classList.add("no-scroll");
-  } else {
+  } else if (menuList) {
     menuList.style.maxHeight = "0px";
     document.body.classList.remove("no-scroll");
   }
 }
 
-const menuLinks = document.querySelectorAll(".menu-link");
+const menuLinks = document.querySelectorAll(".menu-link, .menu a");
 
 menuLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    menuList.style.maxHeight = "0px";
+  link.addEventListener("click", (e) => {
+    const targetId = link.getAttribute("href");
+    if (targetId && targetId.startsWith("#")) {
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        // If inside scroll container (desktop view), scroll scroll-container
+        const scrollContainer = document.querySelector(".scroll");
+        if (scrollContainer && window.innerWidth > 992) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+    if (menuList) {
+      menuList.style.maxHeight = "0px";
+    }
     document.body.classList.remove("no-scroll");
   });
 });

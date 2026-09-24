@@ -19,19 +19,19 @@
   --white: #f5f7f8;
 } */
 
-:root {
+/* :root {
   --primary: #040d12;
   --secondary: #183d3d;
   --unique: #3bcf96;
   --white: #fff;
-}
+} */
 
-/* :root {
+:root {
   --primary: #373b40;
   --secondary: #585d65;
   --unique: #e067bc;
   --white: #fff;
-} */
+}
 
 html::-webkit-scrollbar {
   overflow: hidden;

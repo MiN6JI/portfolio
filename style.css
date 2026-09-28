@@ -540,7 +540,7 @@ ul li a {
 }
 
 .first-project {
-  background-image: url("images/tms-project.png");
+  background-image: url("images/neuro-spine-project.png");
   object-fit: contain;
   background-color: var(--white);
   background-position: center;
@@ -548,7 +548,7 @@ ul li a {
 
 .second-project {
   background-color: var(--white);
-  background-image: url("images/neuro-spine-project.png");
+  background-image: url("images/tms-project.png");
   object-fit: contain;
   background-position: center;
 }
